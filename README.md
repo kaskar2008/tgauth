@@ -4,7 +4,7 @@
 * accounts-password
 * iron:router
 * yuukan:streamy
-* tmeasday:crypto-md5
+* jparker:crypto-md5
 
 ### Examples:
 
