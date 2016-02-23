@@ -1,9 +1,8 @@
 Package.describe({
   name: 'kaskar2008:telegram-bot-auth',
-  version: '0.0.1',
+  version: '0.1.5',
   summary: 'Authorization system based on telegram bot',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
+  git: 'https://github.com/kaskar2008/tgauth',
   documentation: 'README.md'
 });
 
@@ -12,19 +11,11 @@ Package.onUse(function(api) {
   api.use('ecmascript');
   api.use('accounts-base');
   api.use('accounts-password');
-  api.use('iron:router');
-  api.use('yuukan:streamy');
-  api.use('tmeasday:crypto-md5');
-  api.addFiles('client/common.js', 'client');
-  api.addFiles('client/helpers.js', 'client');
-  api.addFiles('server/common.js', 'server');
-  api.addFiles('server/methods.js', 'server');
-});
-
-Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('kaskar2008:telegram-bot-auth');
+  api.use('iron:router@1.0.12');
+  api.use('yuukan:streamy@1.0.3');
+  api.use('jparker:crypto-md5@0.1.0');
+  api.use('templating', 'client');
+  api.use('session', 'client');
   api.addFiles('client/common.js', 'client');
   api.addFiles('client/helpers.js', 'client');
   api.addFiles('server/common.js', 'server');
