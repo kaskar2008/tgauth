@@ -34,7 +34,7 @@ Configuring this url not implemented yet, but I'm working on it
   <p>{{#if currentUser}}<u>Welcome, {{currentUser.username}}</u>{{/if}}</p>
 ```
 
-On clent side:
+On client side:
 
 ```javascript
 Router.configure({
