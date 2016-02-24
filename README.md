@@ -16,6 +16,16 @@ meteor add yuukan:streamy;
 meteor add jparker:crypto-md5
 ```
 
+### Note!
+
+Your Telegram bot should send request to your server at `/tblogin/` with get parametr `q` and value `<telegram_username>-<generated_code>`.
+Example:
+```
+localhost:3000/tblogin/?q=myNick-ddfe323f
+```
+
+Configuring this url not implemented yet, but I'm working on it
+
 ### Examples:
 
 ```language-html
