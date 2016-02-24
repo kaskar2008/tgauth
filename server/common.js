@@ -9,5 +9,3 @@ Router.route('/tblogin/', function () {
 		res.end("[Telegram login] userId: "+uid+"; BotCode:"+botCode+"\n");
 	});
 }, {where: "server"});
-
-console.log("Opened sessions: "+Sessions.find({status:"open"}).count());
