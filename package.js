@@ -1,6 +1,6 @@
 Package.describe({
   name: 'kaskar2008:telegram-bot-auth',
-  version: '0.1.8',
+  version: '0.1.9',
   summary: 'Authorization system based on telegram bot',
   git: 'https://github.com/kaskar2008/tgauth',
   documentation: 'README.md'
