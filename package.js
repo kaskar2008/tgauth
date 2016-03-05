@@ -1,6 +1,6 @@
 Package.describe({
   name: 'kaskar2008:telegram-bot-auth',
-  version: '0.1.9',
+  version: '0.1.14',
   summary: 'Authorization system based on telegram bot',
   git: 'https://github.com/kaskar2008/tgauth',
   documentation: 'README.md'
@@ -20,4 +20,5 @@ Package.onUse(function(api) {
   api.addFiles('client/helpers.js', 'client');
   api.addFiles('server/common.js', 'server');
   api.addFiles('server/methods.js', 'server');
+  api.export('_TGsetAT', 'server');
 });

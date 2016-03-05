@@ -18,13 +18,19 @@ meteor add jparker:crypto-md5
 
 ### Note!
 
-Your Telegram bot should send request to your server at `/tblogin/` with get parametr `q` and value `<telegram_username>-<generated_code>`.
+Your Telegram bot should send request to your server at `/tblogin/` with get parametr `q` and value `<telegram_username>-<generated_code>-<bot_access_token>`.
 Example:
 ```
-localhost:3000/tblogin/?q=myNick-ddfe323f
+localhost:3000/tblogin/?q=myNick-ddfe323f-rfr4345efs4te64ef
 ```
 
 Configuring this url not implemented yet, but I'm working on it
+
+### Note!
+
+Default value of the `bot_access_token` is `xpAn7j8sK5StelAp5iJ3cU9Ii7xDsR0q`.
+
+You can change <bot_access_token> from your server by calling a function _TGsetAT with 1 parametr - new acces token for your bot
 
 ### Examples:
 
@@ -55,4 +61,10 @@ if (Meteor.isClient) {
 		}
 	});
 }
+```
+
+On server side:
+
+```javascript
+_TGsetAT('sdfdsrtfe45tcefw45tgvygujk89');
 ```
