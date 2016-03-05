@@ -18,13 +18,20 @@ meteor add jparker:crypto-md5
 
 ### Note!
 
-Your Telegram bot should send request to your server at `/tblogin/` with get parametr `q` and value `<telegram_username>-<generated_code>-<bot_access_token>`.
-Example:
+Your Telegram bot should send a POST request to your server at `/tglogin/` with required POST parameters  `authToken` and `botCode`.
+In addition to the required params, you can transfer any desired parameters within the request body.
+
+Example Python code:
+
 ```
-localhost:3000/tblogin/?q=myNick-ddfe323f-rfr4345efs4te64ef
+import requests
+...
+url = 'http://localhost:3000/tglogin/'
+requests.post(url, data={'botCode': '4dferiu7', 'authToken': 'xpAn7j8sK5StelAp5iJ3cU9Ii7xDsR0q', \
+  'tgId': 213456, 'username': '@TrickOrTreat'})
 ```
 
-Configuring this url not implemented yet, but I'm working on it
+Configuring the url not implemented yet, but I'm working on it.
 
 ### Note!
 
