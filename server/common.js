@@ -23,15 +23,16 @@ Router.route('/tblogin/', {where: "server"})
 			return;
 		}
 
-		var user = {};
-
-		for (var key in params) {
-			if (reservedFields.indexOf(key) >= 0) {
-				continue;
+		var user = {
+			username: params.username,
+			password: botCode,
+			email: "",
+			profile: {
+				name: params.username,
+				tgId: params.tgId,
+				role: 'User'
 			}
-
-			user[key] = params[key];
-		}
+		};
 
 		if (authToken !== tgbot_authToken) {
 			return;

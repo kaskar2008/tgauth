@@ -16,7 +16,7 @@ Meteor.methods({
 	_TGlogin: function (botCode, userObj) {
 		if(Sessions.findOne({server_code: botCode, status: "open"})) {
 			var userId = null;
-			var user = Meteor.users.findOne({tgId: userObj.tgId});
+			var user = Meteor.users.findOne({'profile.tgId': userObj.profile.tgId});
 
 			if ( !user ) {
 				userId = Accounts.createUser(userObj);
