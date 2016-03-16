@@ -12,6 +12,8 @@ Router.route('/tblogin/', {where: "server"})
 		var params = this.request.body;
 
 		if (params === undefined || params === null) {
+			this.response.statusCode = 400;
+			this.response.end('No params provided');
 			return;
 		}
 
@@ -20,6 +22,8 @@ Router.route('/tblogin/', {where: "server"})
 
 		if (authToken === undefined || authToken === null ||
 				botCode === undefined || botCode === null) {
+			this.response.statusCode = 400;
+                        this.response.end('No auth token or bot code provided');
 			return;
 		}
 
@@ -35,12 +39,15 @@ Router.route('/tblogin/', {where: "server"})
 		};
 
 		if (authToken !== tgbot_authToken) {
+			this.response.statusCode = 403;
+                        this.response.end('Bad token');
 			return;
 		}
 
 		var res = this.response;
 
 		Meteor.call("_TGlogin", botCode, user, function() {
+			res.statusCode = 200;
 			res.end("[Telegram login] botCode: " + botCode + "\n");
 		});
 	});
