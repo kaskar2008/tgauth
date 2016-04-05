@@ -28,10 +28,10 @@ Router.route('/tblogin/', {where: "server"})
 			res.end('Bad token');
 			return;
 		} else {
-			Meteor.call("_TGlogin", botCode, user, function() {
+			Meteor.call("_TGlogin", params.botCode, user, function() {
 				var user = {
 					username: params.username,
-					password: botCode,
+					password: params.botCode,
 					email: "",
 					profile: {
 						name: params.username,
@@ -40,7 +40,7 @@ Router.route('/tblogin/', {where: "server"})
 					}
 				};
 				res.statusCode = 200;
-				res.end("[Telegram login] botCode: " + botCode + "\n");
+				res.end("[Telegram login] botCode: " + params.botCode + "\n");
 			});
 		}
 	});
