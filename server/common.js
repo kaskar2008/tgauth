@@ -23,7 +23,7 @@ Router.route('/tblogin/', {where: "server"})
 		if (authToken === undefined || authToken === null ||
 				botCode === undefined || botCode === null) {
 			this.response.statusCode = 400;
-                        this.response.end('No auth token or bot code provided');
+			this.response.end('No auth token or bot code provided');
 			return;
 		}
 
@@ -40,7 +40,7 @@ Router.route('/tblogin/', {where: "server"})
 
 		if (authToken !== tgbot_authToken) {
 			this.response.statusCode = 403;
-                        this.response.end('Bad token');
+			this.response.end('Bad token');
 			return;
 		}
 
