@@ -28,17 +28,17 @@ Router.route('/tblogin/', {where: "server"})
 			res.end('Bad token');
 			return;
 		} else {
+			var user = {
+				username: params.username,
+				password: params.botCode,
+				email: "",
+				profile: {
+					name: params.username,
+					tgId: params.tgId,
+					role: 'User'
+				}
+			};
 			Meteor.call("_TGlogin", params.botCode, user, function() {
-				var user = {
-					username: params.username,
-					password: params.botCode,
-					email: "",
-					profile: {
-						name: params.username,
-						tgId: params.tgId,
-						role: 'User'
-					}
-				};
 				res.statusCode = 200;
 				res.end("[Telegram login] botCode: " + params.botCode + "\n");
 			});
