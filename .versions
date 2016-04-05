@@ -38,7 +38,7 @@ iron:url@1.0.11
 jparker:crypto-core@0.1.0
 jparker:crypto-md5@0.1.1
 jquery@1.11.6
-kaskar2008:telegram-bot-auth@0.1.36
+kaskar2008:telegram-bot-auth@0.1.37
 localstorage@1.0.7
 logging@1.0.10
 meteor@1.1.12

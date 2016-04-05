@@ -38,9 +38,14 @@ Router.route('/tblogin/', {where: "server"})
 					role: 'User'
 				}
 			};
-			Meteor.call("_TGlogin", params.botCode, user, function() {
-				res.statusCode = 200;
-				res.end("[Telegram login] botCode: " + params.botCode + "\n");
+			Meteor.call("_TGlogin", params.botCode, user, function(err, data) {
+				if(data == 'ok') {
+					res.statusCode = 200;
+					res.end("[Telegram login] botCode: " + params.botCode + "\n");
+				} else {
+					res.statusCode = 405;
+					res.end('Bad code');
+				}
 			});
 		}
 	});
