@@ -4,9 +4,9 @@ _TGsetAT = function(newAT) {
 	tgbot_authToken = newAT;
 }
 
-Sessions = new Meteor.Collection('sessions');
+_TGSessions = new Meteor.Collection('_tg_sessions');
 
-Router.route('/tblogin/', {where: "server"})
+Router.route('/tglogin/', {where: "server"})
 	.post(function () {
 		var reservedFields = ['authToken', 'botCode'];
 		var params = this.request.body;

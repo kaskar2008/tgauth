@@ -1,7 +1,7 @@
 Meteor.methods({
 	_TGtakeToken: function (token) {
 		serverLoginCode = Math.random().toString(36).slice(-8);
-		Sessions.upsert({
+		_TGSessions.upsert({
 			token:token
 		},{
 			$set: {
@@ -14,7 +14,7 @@ Meteor.methods({
 		return serverLoginCode;
 	},
 	_TGlogin: function (botCode, userObj) {
-		if(Sessions.findOne({server_code: botCode, status: "open"})) {
+		if(_TGSessions.findOne({server_code: botCode, status: "open"})) {
 			var userId = null;
 			var user = Meteor.users.findOne({'profile.tgId': userObj.profile.tgId});
 
@@ -28,7 +28,7 @@ Meteor.methods({
 
 			Accounts._insertLoginToken(userId, stampedLoginToken);
 
-			Sessions.update({server_code: botCode, status: "open"}, {
+			_TGSessions.update({server_code: botCode, status: "open"}, {
 				$set: { dob: new Date(), status: "close" }
 			});
 
