@@ -6,16 +6,6 @@
 * yuukan:streamy
 * jparker:crypto-md5
 
-###### Notice! Add them to the project first (put into `packages` file or use commands below)
-
-```
-meteor add accounts-base;
-meteor add accounts-password;
-meteor add iron:router;
-meteor add yuukan:streamy;
-meteor add jparker:crypto-md5
-```
-
 ### Note!
 
 Your Telegram bot should send a POST request to your server at `/tglogin/` with required POST parameters  `authToken` and `botCode`.
